@@ -32,12 +32,14 @@ def get_sys_path():
 
 
 def _get_venv_sitepackages(venv):
-    if os.name == 'nt':
-        p = os.path.join(venv, 'lib', 'site-packages')
-    else:
-        p = os.path.join(venv, 'lib', 'python%d.%d' % sys.version_info[:2],
-                         'site-packages')
-    return p
+    # if os.name == 'nt':
+        # p = os.path.join(venv, 'lib', 'site-packages')
+    # else:
+        # p = os.path.join(venv, 'lib', 'python%d.%d' % sys.version_info[:2],
+                         # 'site-packages')
+    # return p
+    # cygwin using python windows venv
+    return os.path.join(venv, 'lib', 'site-packages')
 
 
 def _execute_code(module_path, code):
